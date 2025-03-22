@@ -1,0 +1,20 @@
+version: '3'
+services:
+  gitlab-server:
+    image: 'gitlab/gitlab-ce:latest'
+    container_name: gitlab-server
+    restart: always
+    environment:
+      GITLAB_ROOT_EMAIL: "yasser@elkhayati.com"
+      GITLAB_ROOT_PASSWORD: "SuperSecurePassword"
+    ports:
+      - "8080:80"
+    volumes:
+      - gitlab-config:/etc/gitlab
+      - gitlab-logs:/var/log/gitlab
+      - gitlab-data:/var/opt/gitlab
+
+volumes:
+  gitlab-config:
+  gitlab-logs:
+  gitlab-data:
