@@ -1,0 +1,25 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build-job:
+  stage: build
+  tags:
+  - docker
+  script:
+    - echo "Building the app..."
+
+test-job:
+  stage: test
+  tags:
+  - docker
+  script:
+    - echo "Running tests..."
+
+deploy-job:
+  stage: deploy
+  tags:
+  - docker
+  script:
+    - echo "Deploying to production..."
