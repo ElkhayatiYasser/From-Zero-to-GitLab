@@ -1,0 +1,14 @@
+[req]
+distinguished_name = req_distinguished_name
+x509_extensions = v3_ca
+prompt = no
+
+[req_distinguished_name]
+countryName = MA
+stateOrProvinceName = Casablanca
+localityName = Casablanca
+organizationName = YasserElKhayati
+commonName = gitlab.yasserelkhayati.com
+
+[v3_ca]
+subjectAltName = IP:192.168.1.10,DNS:gitlab.yasserelkhayati.com
