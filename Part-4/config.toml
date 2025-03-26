@@ -9,6 +9,7 @@ shutdown_timeout = 0
 [[runners]]
   name = "zerotogitlab"
   url = "https://gitlab.yasserelkhayati.com"
+  clone_url = "https://192.168.1.10"
   id = 3
   token = "glrt-t3_5LxBESXjkSomnY3Lxsog"
   token_obtained_at = 2025-03-22T21:40:43Z

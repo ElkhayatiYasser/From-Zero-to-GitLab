@@ -2,6 +2,8 @@ services:
   gitlab-server:
     image: 'gitlab/gitlab-ce:latest'
     container_name: gitlab-server
+    extra_hosts:
+      - "gitlab.yasserelkhayati.com=192.168.1.10"# Modify this with your server IP 
     restart: always
     environment:
       GITLAB_ROOT_EMAIL: "yasser@elkhayati.com"
@@ -20,6 +22,8 @@ services:
   gitlab-runner:
     image: gitlab/gitlab-runner:latest
     container_name: gitlab-runner
+    extra_hosts:
+      - "gitlab.yasserelkhayati.com=192.168.1.10"# Modify this with your server IP 
     volumes:
       - ./ssl:/etc/gitlab-runner/certs
       - ./config.toml:/etc/gitlab-runner/config.toml
