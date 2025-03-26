@@ -2,6 +2,8 @@ services:
   gitlab-server:
     image: 'gitlab/gitlab-ce:latest'
     container_name: gitlab-server
+    extra_hosts:
+      - "gitlab.yasserelkhayati.com=192.168.1.10"# Modify this with your server IP 
     restart: always
     environment:
       GITLAB_ROOT_EMAIL: "yasser@elkhayati.com"
@@ -19,6 +21,8 @@ services:
 
   gitlab-runner:
     image: gitlab/gitlab-runner:latest
+    extra_hosts:
+      - "gitlab.yasserelkhayati.com=192.168.1.10"# Modify this with your server IP
     container_name: gitlab-runner
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock  # Mount Docker socket

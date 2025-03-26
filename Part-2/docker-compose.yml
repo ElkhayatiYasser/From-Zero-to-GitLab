@@ -2,6 +2,8 @@ services:
   gitlab-server:
     image: 'gitlab/gitlab-ce:latest'
     container_name: gitlab-server
+    extra_hosts:
+      - "gitlab.yasserelkhayati.com=192.168.1.10"# Modify this with your server IP 
     environment:
       GITLAB_ROOT_EMAIL: "admin@yasserelkhayati.com"
       GITLAB_ROOT_PASSWORD: "SuperSecurePassword"
