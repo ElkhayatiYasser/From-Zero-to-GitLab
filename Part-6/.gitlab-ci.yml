@@ -1,0 +1,20 @@
+stages:
+  - build
+
+  
+variables:
+  DOCKER_HOST: "tcp://docker:2375"
+  DOCKER_TLS_CERTDIR: ""
+
+build-job:
+  stage: build
+  services:
+    - name: docker:dind
+      alias: docker
+       
+  script:
+    - docker info
+    - docker build -t my-image .
+    - echo "Build completed"
+  tags:
+    - docker
