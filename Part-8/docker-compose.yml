@@ -1,0 +1,43 @@
+services:
+  gitlab-server:
+    image: 'gitlab/gitlab-ce:latest'
+    container_name: gitlab-server
+    extra_hosts:
+      - "gitlab.yasserelkhayati.com=192.168.1.10"# Modify this with your server IP 
+    restart: always
+    environment:
+      GITLAB_ROOT_EMAIL: "yasser@elkhayati.com"
+      GITLAB_ROOT_PASSWORD: "SuperSecurePassword"
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://gitlab.yasserelkhayati.com'  # Modify this with your custom domain
+        nginx['redirect_http_to_https'] = true
+        gitlab_rails['registry_enabled'] = true # activiate the registry
+        registry_external_url 'https://gitlab.yasserelkhayati.com:5050' # add the registry external url
+
+    ports:
+      - "443:443"
+      - "5050:5050"
+    volumes:
+      - gitlab-config:/etc/gitlab
+      - gitlab-logs:/var/log/gitlab
+      - gitlab-data:/var/opt/gitlab
+      - ./ssl:/etc/gitlab/ssl:ro
+
+  gitlab-runner:
+    image: gitlab/gitlab-runner:latest
+    container_name: gitlab-runner
+    runtime: sysbox-runc
+    extra_hosts:
+      - "gitlab.yasserelkhayati.com=192.168.1.10"# Modify this with your server IP 
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # Mount Docker socket
+      - ./ssl:/etc/gitlab-runner/certs
+      - ./config.toml:/etc/gitlab-runner/config.toml
+    environment:
+      - tls-ca-file=/etc/gitlab-runner/certs/gitlab.yasserelkhayati.com.crt
+    depends_on:
+      - gitlab-server
+volumes:
+  gitlab-config:
+  gitlab-logs:
+  gitlab-data:
