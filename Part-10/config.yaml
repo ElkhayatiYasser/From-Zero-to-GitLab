@@ -1,0 +1,3 @@
+ci_access:
+  projects:
+    - id: root/zero-to-gitlab  # Adjust to your project path
