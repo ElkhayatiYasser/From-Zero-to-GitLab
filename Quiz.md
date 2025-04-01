@@ -1,4 +1,4 @@
-# GitLab CI/CD Quiz (100 Questions)
+# GitLab CI/CD Quiz (100 Questions) - Corrected Formatting
 
 ## 🔹 Section 1: Pipelines & Stages
 
@@ -633,7 +633,7 @@
          --fail \
          -F token=YOUR_TRIGGER_TOKEN \
          -F ref=main \
-         "[https://gitlab.example.com/api/v4/projects/YOUR_PROJECT_ID/trigger/pipeline](https://www.google.com/search?q=https://gitlab.example.com/api/v4/projects/YOUR_PROJECT_ID/trigger/pipeline)"
+         "[https://gitlab.example.com/api/v4/projects/YOUR_PROJECT_ID/trigger/pipeline](https://gitlab.example.com/api/v4/projects/YOUR_PROJECT_ID/trigger/pipeline)"
     ```
     B) Send a GET request to `https://gitlab.com/api/v4/pipelines`. (This lists pipelines)
     C) Use a `gitlab-pipeline-trigger` CLI tool. (Not an official GitLab tool)
@@ -648,7 +648,7 @@
 68. How can you retrieve the log (trace) of a specific job using the GitLab API?
     **A) Send a GET request to the job trace endpoint:**
     ```bash
-    curl --header "PRIVATE-TOKEN: <your_token>" "[https://gitlab.example.com/api/v4/projects/YOUR_PROJECT_ID/jobs/JOB_ID/trace](https://www.google.com/search?q=https://gitlab.example.com/api/v4/projects/YOUR_PROJECT_ID/jobs/JOB_ID/trace)"
+    curl --header "PRIVATE-TOKEN: <your_token>" "[https://gitlab.example.com/api/v4/projects/YOUR_PROJECT_ID/jobs/JOB_ID/trace](https://gitlab.example.com/api/v4/projects/YOUR_PROJECT_ID/jobs/JOB_ID/trace)"
     ```
     B) `curl "https://gitlab.com/jobs/logs/1"` (Incorrect URL structure)
     C) Use `gitlab-runner logs`. (This is for runner-level logs, not specific job traces)
