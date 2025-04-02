@@ -1,4 +1,4 @@
-# GitLab CI/CD Quiz (100 Questions) - Bulleted Options Formatting
+# GitLab CI/CD Quiz (100 Questions) 
 
 ## 🔹 Section 1: Pipelines & Stages
 
